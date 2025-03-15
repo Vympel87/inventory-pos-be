@@ -1,0 +1,19 @@
+CREATE TYPE order_status_enum AS ENUM ('PENDING', 'APPROVED', 'SHIPPED', 'RECEIVED', 'CANCELLED');
+
+CREATE TABLE IF NOT EXISTS product_orders (
+    id SERIAL PRIMARY KEY,
+    store_id UUID REFERENCES stores(id) ON DELETE CASCADE,
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    order_number VARCHAR(50) UNIQUE NOT NULL,
+    status order_status_enum NOT NULL DEFAULT 'PENDING',
+    notes TEXT,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TRIGGER trigger_set_updated_at_product_orders
+BEFORE UPDATE ON product_orders
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at_column();
