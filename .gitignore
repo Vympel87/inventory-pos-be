@@ -1,0 +1,69 @@
+# Output binaries
+/tmp/
+/bin/
+
+# Air hot reload files
+/tmp/
+build-errors.log
+
+# Log files
+/logs/
+*.log
+
+# Environment variables
+.env
+*.env.local
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Binary files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+*.cov
+
+# Dependency directories (if not using vendor)
+/vendor/
+
+# Database files
+*.db
+*.sqlite
+
+# Temporary or cache files
+.tmp/
+.cache/
+
+# Build output
+/dist/
+
+# Swagger generated files
+/docs/swagger/swagger.json
+/docs/swagger/swagger.yaml
+
+# Certificate files
+*.pem
+*.crt
+*.key
+
+# Debug files
+__debug_bin
+debug
+
+# PostgreSQL data directory (if running locally)
+/pgdata/
